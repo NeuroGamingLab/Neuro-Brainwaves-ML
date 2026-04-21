@@ -8,9 +8,7 @@ Synthetic brainwave signals for research, demos, and ML pipelines **without EEG 
 - **Support end-to-end workflows** — From scripted generators and Streamlit dashboards to optional producer/consumer patterns and a **`neuro_brainwave_ai_project/`** stack for deeper experimentation.
 - **Stay repeatable** — JSON/PNG and dataset-style outputs land under configurable paths (see `paths.py`); large generated `.jsonl` datasets are intended to be produced locally, not checked into Git.
 
-## Screenshots
-
-Images ship in **`assets/`** and use `./assets/...` paths (relative to this README). In Cursor/VS Code, open this repo as the workspace folder, then **Markdown: Open Preview to the Side**; if images are still blank, run **Markdown: Change preview security settings** and try a less strict level.
+## Preview
 
 **Brain Signal Generator & Visualizer** — session controls, live status, and latest consumer visualization:
 
