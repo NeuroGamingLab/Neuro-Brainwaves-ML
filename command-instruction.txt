@@ -1,0 +1,236 @@
+# Neurosity-3 Brain Signal Generator & Visualizer - Startup Instructions
+
+## Project Overview
+This project contains a working Brain Signal Generator & Visualizer application built with Streamlit. It generates and visualizes realistic brainwave signals in real-time with interactive controls.
+
+## Prerequisites
+- Python 3.9 or higher
+- macOS/Linux/Windows terminal access
+- Web browser (Chrome, Firefox, Safari, etc.)
+
+## Installation & Setup
+
+### 1. Navigate to Project Directory
+```bash
+cd /Users/admin/NeruoMarketing/neurosity-eval/neurosity-3
+```
+
+### 2. Install Dependencies
+Install all required Python packages:
+```bash
+python3 -m pip install -r requirements_streamlit.txt
+```
+
+**Required packages include:**
+- streamlit>=1.28.0
+- plotly>=5.15.0
+- numpy>=1.21.0
+- pandas>=1.3.0
+- matplotlib>=3.5.0
+- scipy>=1.7.0
+- seaborn>=0.11.0
+- python-dotenv>=0.19.0
+
+### 3. Start the Application
+Launch the Advanced Brain Signal Generator & Visualizer with Frequency Band Analysis:
+```bash
+python3 -m streamlit run brain_signal_streamlit_advanced.py
+```
+
+## Expected Output
+After running the command, you should see:
+```
+You can now view your Streamlit app in your browser.
+
+Local URL: http://localhost:8502
+Network URL: http://10.0.1.3:8502
+```
+
+## Access the Application
+1. Open your web browser
+2. Navigate to: **http://localhost:8502**
+3. The Brain Signal Generator & Visualizer interface will load
+
+## Application Features
+
+### Control Panel (Left Sidebar)
+- **Brain State Selection**: Choose from normal, excited, relaxed, focused, stressed, sleepy
+- **Duration Slider**: Set generation time (10-300 seconds)
+- **Variability Slider**: Control brain state variation (0.1-1.0)
+- **Frequency Band Information**: Color-coded display of active frequency bands with amplitude ranges
+- **Current Active Bands**: Real-time display of currently dominant frequency bands
+- **Generate Button**: Start brain signal generation with frequency band analysis
+
+### Main Interface
+- **Brainwave Visualization**: Real-time multi-channel EEG signal display
+- **Brain State Timeline**: Visual representation of state changes
+- **State Variation Plot**: Dynamic variation factor over time
+- **Active Frequency Bands**: Color-coded frequency band activity visualization
+- **Statistics Panel**: Total samples, current state, average variation, active bands
+- **Data Summary Table**: Recent samples with timestamps, states, and active bands
+- **Download Options**: Export data as JSON with frequency band analysis
+
+### EEG Channels
+- **CP3, CP4**: Central-Parietal (motor cortex, planning)
+- **C3, C4**: Central (primary motor cortex, hand movement)
+- **F5, F6**: Frontal (executive function, decision making)
+- **PO3, PO4**: Parietal-Occipital (visual processing, spatial awareness)
+
+### Active Frequency Bands (Color-Coded)
+- **DELTA** (0.5-4 Hz): 5-20 μV - Deep sleep, unconsciousness (Red)
+- **THETA** (4-8 Hz): 8-25 μV - Drowsiness, meditation (Teal)
+- **ALPHA** (8-13 Hz): 5-25 μV - Relaxed, eyes closed (Blue)
+- **BETA** (13-30 Hz): 25-60 μV - Active thinking, focus (Green)
+- **GAMMA** (30-45 Hz): 10-30 μV - High cognitive processing (Yellow)
+
+## Usage Instructions
+
+### Basic Workflow
+1. **Select Brain State**: Choose desired brain activity type
+2. **Set Duration**: Adjust how long to generate signals
+3. **Adjust Variability**: Control state variation level
+4. **Click Generate**: Start the brain signal generation process
+5. **View Results**: Watch real-time visualization and statistics
+6. **Download Data**: Export generated data if needed
+
+### Advanced Features
+- **Brain State Reference**: Expandable section with detailed EEG information
+- **Real-time Updates**: Live visualization updates during generation
+- **State Transitions**: Automatic brain state changes during generation
+- **Data Export**: JSON format download with complete session data
+
+## Troubleshooting
+
+### Common Issues
+
+#### 1. "command not found: streamlit"
+**Solution**: Use the full Python module path:
+```bash
+python3 -m streamlit run brain_signal_streamlit_simple.py
+```
+
+#### 2. "No such file or directory"errors
+**Solution**: Ensure you're in the correct directory:
+```bash
+cd /Users/admin/NeruoMarketing/neurosity-eval/neurosity-3
+ls -la brain_signal_streamlit_simple.py
+```
+
+#### 3. Missing dependencies
+**Solution**: Install requirements:
+```bash
+python3 -m pip install -r requirements_streamlit.txt
+```
+
+#### 4. Port already in use
+**Solution**: Streamlit will automatically use the next available port (8502, 8503, etc.)
+
+### Virtual Environment Issues
+If the project's virtual environment is corrupted:
+```bash
+# Use system Python instead
+python3 -m pip install -r requirements_streamlit.txt
+python3 -m streamlit run brain_signal_streamlit_simple.py
+```
+
+## File Structure
+```
+neurosity-3/
+├── brain_signal_streamlit_advanced.py  # Advanced application with frequency band analysis
+├── brain_signal_streamlit_simple.py    # Basic application file
+├── dynamic_brainwave_generator.py      # Core brainwave generation logic
+├── requirements_streamlit.txt          # Python dependencies
+├── command-instruction.txt             # This instruction file
+└── [other supporting files]
+```
+
+## Application Credits
+- **Designed by**: Dang Hoang, AI Eng.
+- **Built with**: Streamlit, Plotly, NumPy, Pandas
+- **Purpose**: Real-time brainwave signal generation and visualization
+
+## Support
+For issues or questions:
+1. Check this instruction file
+2. Verify all dependencies are installed
+3. Ensure Python 3.9+ is available
+4. Check terminal output for error messages
+
+## Power Down Instructions
+
+### Clean Shutdown Methods
+
+#### Method 1: Using Keyboard Interrupt (Recommended)
+1. **In the terminal where Streamlit is running:**
+   - Press `Ctrl + C` (or `Cmd + C` on Mac)
+   - Wait for the process to terminate gracefully
+   - You should see: "Shutting down..."#### Method 2: Using Process ID (PID)
+1. **Find the Streamlit process:**
+   ```bash
+   ps aux | grep streamlit
+   ```
+2. **Kill the process:**
+   ```bash
+   kill <PID>
+   ```
+   Or force kill if needed:
+   ```bash
+   kill -9 <PID>
+   ```
+
+#### Method 3: Using Shell Script (Automated)
+Use the provided shutdown script (from this repo’s root):
+```bash
+cd /path/to/neuro-brainwaves-gen
+./scripts/shutdown_neurosity.sh
+```
+
+#### Method 4: Kill All Streamlit Processes
+```bash
+pkill -f streamlit
+```
+
+### Verification
+After shutdown, verify the application is stopped:
+```bash
+# Check if port 8502 is free
+lsof -i :8502
+
+# Check for any remaining Streamlit processes
+ps aux | grep streamlit
+```
+
+### Cleanup Steps
+1. **Close browser tabs** with the application
+2. **Stop any background processes** if running
+3. **Clear browser cache** if needed (optional)
+4. **Verify port is free** for next startup
+
+## Quick Start Summary
+```bash
+# 1. Navigate to project
+cd /Users/admin/NeruoMarketing/neurosity-3
+
+# 2. Install dependencies
+python3 -m pip install -r requirements_streamlit.txt
+
+# 3. Start application
+python3 -m streamlit run brain_signal_streamlit_advanced.py
+
+# 4. Open browser to http://localhost:8502
+```
+
+## Quick Shutdown Summary
+```bash
+# Method 1: Keyboard interrupt (Ctrl+C in terminal)
+# Method 2: Use shutdown script (from repo root)
+cd /path/to/neuro-brainwaves-gen
+./scripts/shutdown_neurosity.sh
+
+# Method 3: Kill all Streamlit processes
+pkill -f streamlit
+```
+
+---
+*Last updated: January 2025*
+*Project: Neurosity Brain Signal Generator & Visualizer*
